@@ -1,0 +1,7 @@
+version: '3'
+services:
+  config-server:
+    build: ./config-server
+    image: rrun/config-server-k8s
+    ports:
+      - "8888:8888"
