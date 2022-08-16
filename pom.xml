@@ -10,7 +10,6 @@
 
 	<name>library-micro-services</name>
 
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -19,7 +18,7 @@
 
 	<modules>
 		<module>auth-service</module>
-		<module>guest-service</module>
+		<module>user-service</module>
 		<module>book-service</module>
 		<module>reservation-service</module>
 		<module>gateway-server</module>

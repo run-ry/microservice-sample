@@ -1,4 +1,4 @@
-package com.rrun.book.entity;
+package com.rrun.user.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -7,9 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.googlecode.jmapper.annotations.JMap;
 
@@ -18,33 +18,34 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "BOOK")
+@Table(name = "USER_DETAILS")
 @Setter
 @Getter
 @NoArgsConstructor
-public class Book {
+public class User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@JMap
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "IS_ACTIVE")
+	@NotNull
+	@Column(name = "STATUS")
 	@JMap
-	private Boolean isActive;
+	private Boolean status;
+	
+	@NotNull
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "PROFILE_ID")
+	@JMap
+	private Profile profile;
 
-	@Column(name = "Category")
+	
+	@Column(name = "USER_NAME")
+	@NotNull
 	@JMap
-	private String category;
-
-	@Column(name = "Author")
+	private String userName;
+	
+	@Column(name = "PASSWORD")
+	@NotNull
 	@JMap
-	private String author;
-
-	@Column(name = "Title")
-	@JMap
-	private String title;
-
-	@Column(name = "Description")
-	@JMap
-	private String description;
+	private String password;
 }

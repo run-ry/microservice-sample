@@ -1,22 +1,44 @@
-package com.rrun.auth.model;
+package com.rrun.user.dto;
+
+import com.googlecode.jmapper.annotations.JMap;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Profile {
+public class ProfileDto {
+	@JMap
 	private int id;
+	
+	@JMap
 	private String firstName;
+	
+	@JMap
 	private String lastName;
+	
+	@JMap
 	private String emailid;
+	
+	@JMap
 	private String mobileNumber;
+	
+	@JMap
 	private String street;
+	
+	@JMap
 	private String city;
+	
+	@JMap
 	private String state;
-	private String pinCode;
+	
+	@JMap
+	private int pinCode;
+	
+	@JMap
 	private String country;
-	private String photo;
 }

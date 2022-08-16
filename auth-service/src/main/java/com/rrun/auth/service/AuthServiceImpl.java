@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.rrun.auth.model.ApiResponse;
 import com.rrun.auth.model.LoginDetails;
 import com.rrun.auth.model.User;
-import com.rrun.auth.utility.GuestFeignClient;
+import com.rrun.auth.utility.UserFeignClient;
 import com.rrun.auth.utility.JwtUtility;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
@@ -21,16 +21,16 @@ import lombok.extern.slf4j.Slf4j;
 public class AuthServiceImpl implements AuthService {
 
 	@Autowired
-	private GuestFeignClient guestFeignClient;
+	private UserFeignClient userFeignClient;
 
 	@Autowired
 	private JwtUtility jwtUtility;
 
 	@Override
-	@CircuitBreaker(name = "guest-service", fallbackMethod = "loginFallback")
+	@CircuitBreaker(name = "user-service", fallbackMethod = "loginFallback")
 	public ResponseEntity<ApiResponse<String>> login(LoginDetails loginDetails) {
-		log.info("Sending the get call to the guest service to get the user details");
-		User user = guestFeignClient.getUserByUserName(loginDetails.getUserName()).getBody().getData();
+		log.info("Sending the get call to the user service to get the user details");
+		User user = userFeignClient.getUserByUserName(loginDetails.getUserName()).getBody().getData();
 		log.info("User detials has retrieved ");
 		String userName = null;
 		if (user != null) {
@@ -53,13 +53,14 @@ public class AuthServiceImpl implements AuthService {
 
 	public ResponseEntity<ApiResponse<String>> loginFallback(LoginDetails loginDetails, Exception e) {
 
-		return new ResponseEntity<>(new ApiResponse<>("guest-service is down", new Date(), e.getMessage()),
+		return new ResponseEntity<>(new ApiResponse<>("user-service is down", new Date(), e.getMessage()),
 				HttpStatus.SERVICE_UNAVAILABLE);
 	}
 
 	@Override
 	public ResponseEntity<ApiResponse<User>> signUp(User userDto) {
-		User user = guestFeignClient.addUser(userDto).getBody().getData();
+		User checkUser = userFeignClient.getUserByUserName(userDto.getUserName()).getBody().getData();
+		User user = userFeignClient.addUser(userDto).getBody().getData();
 		return new ResponseEntity<>(new ApiResponse<>(user, new Date(), "Token generated"), HttpStatus.CREATED);
 	}
 

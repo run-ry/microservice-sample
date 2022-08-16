@@ -7,7 +7,7 @@ import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import com.rrun.guest.exception.AuthorizationException;
+import com.rrun.user.exception.AuthorizationException;
 
 import lombok.extern.slf4j.Slf4j;
 

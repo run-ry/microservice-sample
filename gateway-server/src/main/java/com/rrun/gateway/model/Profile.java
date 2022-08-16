@@ -12,7 +12,7 @@ public class Profile {
 	private String firstName;
 	private String lastName;
 	private String emailid;
-	private long mobileNumber;
+	private String mobileNumber;
 	private String street;
 	private String city;
 	private String state;

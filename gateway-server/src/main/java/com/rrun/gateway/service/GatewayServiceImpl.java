@@ -25,7 +25,7 @@ public class GatewayServiceImpl implements GatewayService {
 	private final String authUrl ="http://localhost:8083";
 
 	@Override
-	@CircuitBreaker(name = "guest-service", fallbackMethod = "loginFallback")
+	@CircuitBreaker(name = "user-service", fallbackMethod = "loginFallback")
 	public ResponseEntity<ApiResponse<String>> login(LoginDetails loginDetails) {
 		log.info("sending the get call to the login");
 		ApiResponse<String> apiResponse = restTemplate

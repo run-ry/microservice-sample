@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import com.rrun.reservation.dto.ReservationDto;
 import com.rrun.reservation.entity.Reservation;
 import com.rrun.reservation.exception.ReservationNotFoundException;
-import com.rrun.reservation.feing.client.GuestFeignClient;
+import com.rrun.reservation.feing.client.UserFeignClient;
 import com.rrun.reservation.feing.client.BookFeignClient;
 import com.rrun.reservation.mapper.ReservationMapper;
 import com.rrun.reservation.model.ApiResponse;
@@ -31,17 +31,17 @@ public class ReservationServiceImpl implements ReservationService {
 	private ReservationRepository reservationRepository;
 
 	@Autowired
-	private GuestFeignClient guestFeignClient;
+	private UserFeignClient userFeignClient;
 	@Autowired
 	private BookFeignClient bookFeignClient;
 
 
-	@CircuitBreaker(name = "guest-service", fallbackMethod = "addReservationFallback")
+	@CircuitBreaker(name = "user-service", fallbackMethod = "addReservationFallback")
 	public ResponseEntity<ApiResponse<Reservation>> addReservation(ReservationDto reservationDto) {
 		log.info("Entered" + getClass().getName());
 		Reservation reservation = null;
-		User user = getGuestDetails(reservationDto);
-		Book book = getHotelDetails(reservationDto);
+		User user = getUserDetails(reservationDto);
+		Book book = getBookDetails(reservationDto);
 		reservation = new ReservationMapper().convert(reservationDto);
 		if (user != null)
 			reservation.setUserId(user.getId());
@@ -55,12 +55,12 @@ public class ReservationServiceImpl implements ReservationService {
 		return responseEntity;
 	}
 
-	public Book getHotelDetails(ReservationDto reservationDto) {
+	public Book getBookDetails(ReservationDto reservationDto) {
 		return bookFeignClient.getBookById(reservationDto.getBookId()).getData();
 	}
 
-	public User getGuestDetails(ReservationDto reservationDto) {
-		return guestFeignClient.getUserByUserName(reservationDto.getUserName()).getBody().getData();
+	public User getUserDetails(ReservationDto reservationDto) {
+		return userFeignClient.getUserByUserName(reservationDto.getUserName()).getBody().getData();
 	}
 
 	public ResponseEntity<ApiResponse<String>> addReservationFallback(ReservationDto reservationDto,

@@ -1,4 +1,4 @@
-package com.rrun.book.configuration;
+package com.rrun.user.configuration;
 
 import java.util.ArrayList;
 
@@ -14,13 +14,13 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Configuration
 public class SwaggerConfiguration {
 	@Bean
-	public Docket bookServiceApiDock() {
+	public Docket userServiceApiDock() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
-				.apis(RequestHandlerSelectors.basePackage("com.rrun.book")).build().apiInfo(metaData());
+				.apis(RequestHandlerSelectors.basePackage("com.rrun.user")).build().apiInfo(metaData());
 	}
-
+	
 	public ApiInfo metaData() {
-		return new ApiInfo("Book-Service", "This Document contains the register service api", "1.0", "urn:tos",
+		return new ApiInfo("User-Service", "This Document contains the register service api", "1.0", "urn:tos",
 				new Contact("RUN RY", "URL", "ry.run007@gmail.com"), "Apache 2.0",
 				"http://www.apache.org/licenses/LICENSE-2.0", new ArrayList<>());
 	}

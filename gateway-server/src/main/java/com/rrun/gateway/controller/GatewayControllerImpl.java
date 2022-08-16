@@ -29,7 +29,7 @@ public class GatewayControllerImpl implements GatewayController {
 
 	public ResponseEntity<ApiResponse<String>> loginFallback(LoginDetails loginDetails, Exception e) {
 		log.info("Entired into the loginFallback Mrthod" + GatewayControllerImpl.class.getName());
-		return new ResponseEntity<>(new ApiResponse<>("guest-service is down", new Date(), e.getMessage()),
+		return new ResponseEntity<>(new ApiResponse<>("user-service is down", new Date(), e.getMessage()),
 				HttpStatus.SERVICE_UNAVAILABLE);
 	}
 

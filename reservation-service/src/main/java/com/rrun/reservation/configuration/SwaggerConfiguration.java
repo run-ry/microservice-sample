@@ -14,7 +14,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Configuration
 public class SwaggerConfiguration {
 	@Bean
-	public Docket guestServiceApiDock() {
+	public Docket reservationServiceApiDock() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("com.rrun.reservation")).build().apiInfo(metaData());
 	}
