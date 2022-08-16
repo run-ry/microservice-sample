@@ -18,7 +18,7 @@ public class ResponseEntityExceptionHandler {
 	}
 
 	@ExceptionHandler(AuthorizationException.class)
-	public ResponseEntity<Object> handleHotelNotFoundException(Exception ex, WebRequest request) {
+	public ResponseEntity<Object> handlebookNotFoundException(Exception ex, WebRequest request) {
 
 		return new ResponseEntity<>(new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false)),
 				HttpStatus.UNAUTHORIZED);

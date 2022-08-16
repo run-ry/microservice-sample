@@ -19,10 +19,10 @@ public class GatewayConfiguration {
 	public RouteLocator gateWayRoutes(RouteLocatorBuilder builder) {
 		return builder.routes().route("guest-service", r -> r.path("/v1/api/users/**")
 				.filters(f -> f.filter(authenticationFilter.apply(new AuthFilterConfig()))).uri("lb://guest-service"))
-				.route("hotel-service",
-						r -> r.path("/v1/api/hotels/**")
+				.route("book-service",
+						r -> r.path("/v1/api/books/**")
 								.filters(f -> f.filter(authenticationFilter.apply(new AuthFilterConfig())))
-								.uri("lb://hotel-service"))
+								.uri("lb://book-service"))
 				.route("payment-service",
 						r -> r.path("/v1/api/payments/**")
 								.filters(f -> f.filter(authenticationFilter.apply(new AuthFilterConfig())))
