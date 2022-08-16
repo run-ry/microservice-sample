@@ -25,13 +25,13 @@ public class BookControllerImpl implements BookController {
 	BookMapper bookMapper;
 
 	@Override
-	public ApiResponse<BookDto> addbook(BookDto bookDto) {
+	public ApiResponse<BookDto> addBook(BookDto bookDto) {
 		return new ApiResponse<>(bookMapper.convert(bookService.addBook(bookDto)),
 				LocalDate.now(),"book added into DB.");
 	}
 
 	@Override
-	public ApiResponse<List<BookDto>> getbooks() {
+	public ApiResponse<List<BookDto>> getBooks() {
 		List<Book> books = bookService.getBooks();
 		
 		List<BookDto> bookDtos = books.stream()
@@ -43,25 +43,25 @@ public class BookControllerImpl implements BookController {
 	}
 
 	@Override
-	public ApiResponse<BookDto> getbookById(int bookId) {
+	public ApiResponse<BookDto> getBookById(int bookId) {
 		return new ApiResponse<>(bookMapper.convert(bookService.getBookById(bookId)),
 				LocalDate.now(),SUCCESS);
 	}
 
 	@Override
-	public ApiResponse<BookDto> updatebook(BookDto bookDto, int bookId) {
+	public ApiResponse<BookDto> updateBook(BookDto bookDto, int bookId) {
 		return new ApiResponse<>(bookMapper.convert(bookService.updateBook(bookDto, bookId)),
 				LocalDate.now(),"book details updated successfully.");
 	}
 
 	@Override
-	public ApiResponse<BookDto> deletebook(int bookId) {
+	public ApiResponse<BookDto> deleteBook(int bookId) {
 		return new ApiResponse<>(bookMapper.convert(bookService.deleteBook(bookId)),
 				LocalDate.now(),"book deleted successfully.");
 	}
 
 	@Override
-	public ApiResponse<BookDto> getbookByName(String name) {
+	public ApiResponse<BookDto> getBookByName(String name) {
 		return new ApiResponse<>(bookMapper.convert(bookService.getBooksByName(name)),
 				LocalDate.now(),SUCCESS);
 	}

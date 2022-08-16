@@ -23,10 +23,6 @@ public class GatewayConfiguration {
 						r -> r.path("/v1/api/books/**")
 								.filters(f -> f.filter(authenticationFilter.apply(new AuthFilterConfig())))
 								.uri("lb://book-service"))
-				.route("payment-service",
-						r -> r.path("/v1/api/payments/**")
-								.filters(f -> f.filter(authenticationFilter.apply(new AuthFilterConfig())))
-								.uri("lb://payment-service"))
 				.route("reservation-service",
 						r -> r.path("/v1/api/reservations/**")
 								.filters(f -> f.filter(authenticationFilter.apply(new AuthFilterConfig())))

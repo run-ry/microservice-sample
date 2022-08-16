@@ -2,8 +2,6 @@ package com.rrun.gateway.service;
 
 import java.util.Date;
 
-import com.rrun.gateway.utility.AuthFeignClient;
-import com.rrun.gateway.utility.GuestFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +22,7 @@ public class GatewayServiceImpl implements GatewayService {
 	@Autowired
 	private RestTemplate restTemplate;
 
-	private final String authUrl="http://localhost:8083";
+	private final String authUrl ="http://localhost:8083";
 
 	@Override
 	@CircuitBreaker(name = "guest-service", fallbackMethod = "loginFallback")

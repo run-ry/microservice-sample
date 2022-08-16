@@ -21,6 +21,7 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilterConfig> {
 	@Autowired
 	private RestTemplate restTemplate;
 
+	private final String authUrl ="http://localhost:8083";
 	@Override
 	public GatewayFilter apply(AuthFilterConfig config) {
 
@@ -35,7 +36,7 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilterConfig> {
 				log.info("Authorization key is there ");
 				final String token = request.getHeaders().get("Authorization").get(0);
 				if (token.isEmpty()
-						&& restTemplate.getForObject("localhost:8083/v1/api/validate/" + token, Boolean.class))
+						&& restTemplate.getForObject(authUrl+"/v1/api/validate/" + token, Boolean.class))
 					throw new AuthorizationException("Invalid Token KEY");
 				log.info("token is validated ");
 				try {

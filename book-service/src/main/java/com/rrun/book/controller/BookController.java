@@ -18,21 +18,21 @@ import java.util.List;
 public interface BookController {
 
 	@PostMapping("/books")
-	public ApiResponse<BookDto> addbook(@RequestBody BookDto bookDto);
+	public ApiResponse<BookDto> addBook(@RequestBody BookDto bookDto);
 
 	@GetMapping("/books")
-	public ApiResponse<List<BookDto>> getbooks();
+	public ApiResponse<List<BookDto>> getBooks();
 
 	@GetMapping("/books/{bookId}")
-	public ApiResponse<BookDto> getbookById(@PathVariable int bookId);
+	public ApiResponse<BookDto> getBookById(@PathVariable int bookId);
 	
 	@GetMapping("/books/name/{name}")
-	public ApiResponse<BookDto> getbookByName(@PathVariable String name);
+	public ApiResponse<BookDto> getBookByName(@PathVariable String name);
 
 	@PutMapping("/books/{bookId}")
-	public  ApiResponse<BookDto> updatebook(@RequestBody BookDto bookDto, @PathVariable int bookId);
+	public  ApiResponse<BookDto> updateBook(@RequestBody BookDto bookDto, @PathVariable int bookId);
 
 	@DeleteMapping("/books/{bookId}")
-	public ApiResponse<BookDto> deletebook(@PathVariable int bookId);
+	public ApiResponse<BookDto> deleteBook(@PathVariable int bookId);
 
 }
