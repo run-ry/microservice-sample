@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.rrun.guest.dto.ApiResponse;
 import com.rrun.guest.dto.UserDto;
-import com.rrun.guest.entity.User;
 
 @RequestMapping("/v1/api")
 public interface GuestController {

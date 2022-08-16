@@ -20,8 +20,8 @@ public class SwaggerConfiguration {
 	}
 	
 	public ApiInfo metaData() {
-		return new ApiInfo("Guest-Service", "This Document contains the guest service api", "1.0", "urn:tos",
-				new Contact("Md. Mahir Labib", "URL", "mahir9@gmail.com"), "Apache 2.0",
+		return new ApiInfo("Guest-Service", "This Document contains the register service api", "1.0", "urn:tos",
+				new Contact("RUN RY", "URL", "ry.run007@gmail.com"), "Apache 2.0",
 				"http://www.apache.org/licenses/LICENSE-2.0", new ArrayList<>());
 	}
 }

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rrun.guest.dto.UserDto;
-import com.rrun.guest.entity.CreditCard;
 import com.rrun.guest.entity.User;
 import com.rrun.guest.exception.GuestNotFoundException;
 import com.rrun.guest.mapper.UserMapperImpl;
@@ -40,11 +39,6 @@ public class GuestServiceImpl implements GuestService {
 		User user = getUserById(userId);
 		user.setProfile(userEntiry.getProfile());
 		user.setStatus(userEntiry.getStatus());
-		user.setStayHistory(userEntiry.getStayHistory());
-		for (CreditCard card : userEntiry.getCreditCards()) {
-			card.setUser(user);
-		}
-		user.setCreditCards(userEntiry.getCreditCards());
 
 		return guestRepository.save(user);
 	}

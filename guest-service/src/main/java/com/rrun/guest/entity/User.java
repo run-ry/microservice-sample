@@ -41,13 +41,7 @@ public class User {
 	@JoinColumn(name = "PROFILE_ID")
 	@JMap
 	private Profile profile;
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-	@JMap
-	private List<CreditCard> creditCards = new ArrayList<>();
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-	private List<StayHistory> stayHistory = new ArrayList<>();
+
 	
 	@Column(name = "USER_NAME")
 	@NotNull
