@@ -1,9 +1,10 @@
-package com.rrun.authservice;
+package com.rrun.gateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-class AuthServiceApplicationTests {
+@SpringBootTest
+class GatewayServerApplicationTests {
 
 	@Test
 	void contextLoads() {
