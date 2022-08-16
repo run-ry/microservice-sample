@@ -37,7 +37,6 @@ class GuestControllerTest {
 		userMapperImpl = new UserMapperImpl();
 		userDto = new UserDto();
 		userDto.setStatus(true);
-		userDto.setCreditCards(new ArrayList<>());
 		userDto.setProfile(new ProfileDto());
 	}
 }

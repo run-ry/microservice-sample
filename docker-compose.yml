@@ -5,3 +5,8 @@ services:
     image: rrun/config-server-k8s
     ports:
       - "8888:8888"
+  discovery-server:
+    build: ./discovery-server
+    image: rrun/discovery-server-k8s
+    ports:
+      - "8761:8761"

@@ -1,4 +1,4 @@
 FROM public.ecr.aws/amazoncorretto/amazoncorretto:11
-ADD target/config-server-*.jar app.jar
+ADD target/discovery-server-*.jar app.jar
 ENTRYPOINT ["java","-jar","app.jar"]
 
