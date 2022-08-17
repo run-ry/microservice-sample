@@ -12,7 +12,7 @@
 	<groupId>com.rrun</groupId>
 	<artifactId>book-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>BookService</name>
+	<name>bookService</name>
 	<description>This Micro service will be managed Book service end points </description>
 	<properties>
 		<java.version>11</java.version>
