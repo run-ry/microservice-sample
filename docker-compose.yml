@@ -10,3 +10,33 @@ services:
     image: rrun/discovery-server-k8s
     ports:
       - "8761:8761"
+  auth-service:
+    build: ./auth-service
+    image: rrun/auth-service-k8s
+    ports:
+      - "8083:8083"
+  user-service:
+    build: ./user-service
+    image: rrun/user-service-k8s
+    ports:
+      - "8081:8081"
+  book-service:
+    build: ./book-service
+    image: rrun/book-service-k8s
+    ports:
+      - "8082:8082"
+  reservation-service:
+    build: ./reservation-service
+    image: rrun/reservation-service-k8s
+    ports:
+      - "8087:8087"
+  gateway-server:
+    build: ./gateway-server
+    image: rrun/gateway-server-k8s
+    ports:
+      - "6180:6180"
+    depends_on:
+      - book-service
+      - auth-service
+      - user-service
+      - reservation-service
