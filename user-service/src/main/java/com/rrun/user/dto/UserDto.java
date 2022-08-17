@@ -1,5 +1,6 @@
 package com.rrun.user.dto;
 
+import java.util.List;
 
 import com.googlecode.jmapper.annotations.JMap;
 
@@ -17,7 +18,7 @@ public class UserDto {
 	
 	@JMap
 	private ProfileDto profile;
-	
+
 	@JMap
 	private String userName;
 	

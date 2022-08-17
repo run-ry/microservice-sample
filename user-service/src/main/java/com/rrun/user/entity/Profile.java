@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import com.googlecode.jmapper.annotations.JMap;
@@ -41,11 +42,10 @@ public class Profile {
 	@Column(name = "EMAIL")
 	@JMap
 	private String emailid;
-	
-	@NotNull
+
 	@Column(name = "MOBILE_NO")
 	@JMap
-	private String mobileNumber;
+	private long mobileNumber;
 	
 	@Column(name = "STREET")
 	@JMap
@@ -67,8 +67,4 @@ public class Profile {
 	@Column(name = "COUNTRY")
 	@JMap
 	private String country;
-
-	@Column(name = "PHOTO")
-	@JMap
-	private String photo;
 }
