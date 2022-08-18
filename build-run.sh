@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 echo  "Package building..."
-mvn clean install
+mvn clean install -Dmaven.test.skip
+
 
 # Todo: kill app before execute below (ps , kill -9 xxx xxx)
 

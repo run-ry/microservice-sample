@@ -64,7 +64,7 @@ This project demonstrates the usage of API gateway between microservices using s
    ```
      $ git clone https://github.com/run-ry/microservice-sample.git
      $ cd microservice-sample
-     $ sh ./build-run.sh
+     $ sh ./build-run.sh (waiting around 5 minutes to start all services)
      ```
 
  * To deploy the application  to docker compose:
