@@ -3,6 +3,7 @@ This project demonstrates the usage of API gateway between microservices using s
 
 
 
+![spring cloud gateway](images/architecture.png)
 
 #### Projects
 
