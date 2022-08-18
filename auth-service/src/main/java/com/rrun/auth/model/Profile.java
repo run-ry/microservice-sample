@@ -18,5 +18,4 @@ public class Profile {
 	private String state;
 	private String pinCode;
 	private String country;
-	private String photo;
 }

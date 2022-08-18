@@ -59,7 +59,6 @@ public class AuthServiceImpl implements AuthService {
 
 	@Override
 	public ResponseEntity<ApiResponse<User>> signUp(User userDto) {
-		User checkUser = userFeignClient.getUserByUserName(userDto.getUserName()).getBody().getData();
 		User user = userFeignClient.addUser(userDto).getBody().getData();
 		return new ResponseEntity<>(new ApiResponse<>(user, new Date(), "Token generated"), HttpStatus.CREATED);
 	}

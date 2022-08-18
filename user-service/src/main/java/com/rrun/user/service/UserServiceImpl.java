@@ -3,6 +3,7 @@ package com.rrun.user.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.rrun.user.exception.ExceptionResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,10 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userRepository;
 
 	public User addUser(UserDto userDto) {
+		Optional<User> optionalUser = userRepository.findByUserName(userDto.getUserName());
+		if (optionalUser.isPresent()) {
+			throw new RuntimeException("Username is already exist");
+		}
 		return userRepository.save(new UserMapperImpl().convert(userDto));
 	}
 

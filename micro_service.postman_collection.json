@@ -1,0 +1,511 @@
+{
+	"info": {
+		"_postman_id": "137741d9-89e9-4038-bbd8-50f92d6cdd79",
+		"name": "Micro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17580043"
+	},
+	"item": [
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"isActive\": true,\r\n  \"title\": \"Khmer Novel\",\r\n  \"author\": \"Sovan\",\r\n  \"category\": \"Novel\",\r\n  \"description\": \"Khmer history book\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gatewayUrl}}/v1/api/books",
+							"host": [
+								"{{gatewayUrl}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n  \"isActive\": true,\r\n  \"title\": \"Khmer Novel V2\",\r\n  \"author\": \"Sovan\",\r\n  \"category\": \"Novel\",\r\n  \"description\": \"Khmer history book\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gatewayUrl}}/v1/api/books/1",
+							"host": [
+								"{{gatewayUrl}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"isActive\": true,\r\n  \"title\": \"Khmer Novel\",\r\n  \"author\": \"Sovan\",\r\n  \"category\": \"Novel\",\r\n  \"description\": \"Khmer history book\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gatewayUrl}}/v1/api/books/1",
+							"host": [
+								"{{gatewayUrl}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Books",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"isActive\": true,\r\n  \"title\": \"Khmer Novel\",\r\n  \"author\": \"Sovan\",\r\n  \"category\": \"Novel\",\r\n  \"description\": \"Khmer history book\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gatewayUrl}}/v1/api/books",
+							"host": [
+								"{{gatewayUrl}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Available Books",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gatewayUrl}}/v1/api/books",
+							"host": [
+								"{{gatewayUrl}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservation",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 0,\r\n    \"isActive\": true,\r\n    \"issuedDate\": \"2022-08-20\",\r\n    \"returnDate\": \"2022-08-25\",\r\n    \"status\": \"booked\",\r\n    \"userName\": \"admin\",\r\n    \"bookId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gatewayUrl}}/v1/api/reservations",
+							"host": [
+								"{{gatewayUrl}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"reservations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"isActive\": true,\r\n    \"issuedDate\": \"2022-08-20\",\r\n    \"returnDate\": \"2022-08-25\",\r\n    \"status\": \"booked\",\r\n    \"userName\": \"admin\",\r\n    \"bookId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gatewayUrl}}/v1/api/reservations/1",
+							"host": [
+								"{{gatewayUrl}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"reservations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"isActive\": true,\r\n  \"title\": \"Khmer Novel\",\r\n  \"author\": \"Sovan\",\r\n  \"category\": \"Novel\",\r\n  \"description\": \"Khmer history book\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gatewayUrl}}/v1/api/reservations/1",
+							"host": [
+								"{{gatewayUrl}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"reservations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"isActive\": true,\r\n  \"title\": \"Khmer Novel\",\r\n  \"author\": \"Sovan\",\r\n  \"category\": \"Novel\",\r\n  \"description\": \"Khmer history book\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gatewayUrl}}/v1/api/reservations",
+							"host": [
+								"{{gatewayUrl}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"reservations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My Reservation",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"isActive\": true,\r\n  \"title\": \"Khmer Novel\",\r\n  \"author\": \"Sovan\",\r\n  \"category\": \"Novel\",\r\n  \"description\": \"Khmer history book\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gatewayUrl}}/v1/api/reservations/1",
+							"host": [
+								"{{gatewayUrl}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"reservations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gatewayUrl}}/v1/api/users",
+							"host": [
+								"{{gatewayUrl}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n  \"userName\": \"admin\",\r\n  \"password\": \"secureP@ssword01\",\r\n  \"profile\": {\r\n    \"id\": 1,\r\n    \"emailid\": \"ry.run@gmail.com\",\r\n    \"firstName\": \"RUN\", \r\n    \"lastName\": \"RY\",\r\n    \"mobileNumber\": \"0967488885\",\r\n    \"country\": \"Cambodia\",\r\n    \"city\": \"Phnom Penh\",\r\n    \"pinCode\": 1110,\r\n    \"state\": \"PP\",\r\n    \"street\": \"1BT\"\r\n  },\r\n  \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gatewayUrl}}/v1/api/users/1",
+							"host": [
+								"{{gatewayUrl}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sign Up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"userName\": \"admin\",\r\n  \"password\": \"secureP@ssword01\",\r\n  \"profile\": {\r\n    \"id\": 0,\r\n    \"emailid\": \"ry.run@gmail.com\",\r\n    \"firstName\": \"RUN\",\r\n    \r\n    \"lastName\": \"RY\",\r\n    \"mobileNumber\": \"0967488884\",\r\n    \"country\": \"Cambodia\",\r\n    \"city\": \"Phnom Penh\",\r\n    \"pinCode\": 1110,\r\n    \"state\": \"PP\",\r\n    \"street\": \"1BT\"\r\n  },\r\n  \"status\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{gatewayUrl}}/v1/api/signup",
+					"host": [
+						"{{gatewayUrl}}"
+					],
+					"path": [
+						"v1",
+						"api",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"pm.collectionVariables.set('token', response.data);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"admin\",\r\n    \"password\": \"secureP@ssword01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{gatewayUrl}}/v1/api/login",
+					"host": [
+						"{{gatewayUrl}}"
+					],
+					"path": [
+						"v1",
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "gatewayUrl",
+			"value": "http://localhost:6180",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "xxxxxxxxx",
+			"type": "string"
+		}
+	]
+}
